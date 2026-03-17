@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Github, Linkedin, Code2 } from 'lucide-react';
-import { PERSON_DETAILS } from '../constants';
-import { cn } from '../lib/utils';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X, Github, Linkedin, Code2 } from "lucide-react";
+import { PERSON_DETAILS } from "../constants";
+import { cn } from "../lib/utils";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
+  // { name: 'Projects', href: '#projects' },
+  { name: "Blog", href: "#blog" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -21,15 +21,17 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4',
-        scrolled ? 'bg-black/50 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
+        scrolled
+          ? "bg-black/50 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent",
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -64,10 +66,20 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             className="flex items-center gap-4 ml-4 border-l border-white/10 pl-8"
           >
-            <a href={PERSON_DETAILS.linkedin} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href={PERSON_DETAILS.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <Linkedin size={18} />
             </a>
-            <a href={PERSON_DETAILS.leetcode} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href={PERSON_DETAILS.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <Code2 size={18} />
             </a>
           </motion.div>
@@ -87,7 +99,7 @@ export default function Navbar() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-black/90 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >

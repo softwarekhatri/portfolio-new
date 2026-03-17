@@ -71,12 +71,12 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="#projects"
+                href="#blog"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-indigo-600 text-white rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/20"
               >
-                View Projects <ArrowRight size={18} />
+                Read My Blogs <ArrowRight size={18} />
               </motion.a>
               <motion.a
                 href="#contact"

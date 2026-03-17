@@ -1,46 +1,46 @@
-import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import CodingProfile from './components/CodingProfile';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Background3D from './components/Background3D';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import CodingProfile from "./components/CodingProfile";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Background3D from "./components/Background3D";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   useEffect(() => {
     // Smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        const targetId = this.getAttribute("href");
+        if (!targetId || targetId === "#") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
           return;
         }
         try {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({
-              behavior: 'smooth'
+              behavior: "smooth",
             });
           }
         } catch (err) {
-          console.error('Invalid selector:', targetId);
+          console.error("Invalid selector:", targetId);
         }
       });
     });
 
     // GSAP reveal animations for sections
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll("section");
     sections.forEach((section) => {
       gsap.fromTo(
         section,
@@ -51,10 +51,10 @@ export default function App() {
           duration: 1,
           scrollTrigger: {
             trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
-        }
+        },
       );
     });
   }, []);
@@ -68,7 +68,7 @@ export default function App() {
         <About />
         <Skills />
         <Experience />
-        <Projects />
+        {/* <Projects /> */}
         <CodingProfile />
         <Blog />
         <Contact />
