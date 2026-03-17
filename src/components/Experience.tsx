@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
-import { EXPERIENCES } from '../constants';
+import React from "react";
+import { motion } from "motion/react";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { EXPERIENCES } from "../constants";
 
 export default function Experience() {
   return (
@@ -39,14 +39,18 @@ export default function Experience() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className={`relative mb-12 md:w-1/2 ${
-                idx % 2 === 0 ? 'md:ml-0 md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'
+                idx % 2 === 0
+                  ? "md:ml-0 md:mr-auto md:pr-12"
+                  : "md:ml-auto md:pl-12"
               } text-left`}
             >
               {/* Dot */}
-              <div className={`absolute top-0 w-10 h-10 bg-black border-4 border-indigo-600 rounded-full flex items-center justify-center z-10 transform 
-                ${idx % 2 === 0 
-                  ? 'left-4 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-1/2' 
-                  : 'left-4 -translate-x-1/2 md:left-0 md:-translate-x-1/2'
+              <div
+                className={`absolute top-0 w-10 h-10 bg-black border-4 border-indigo-600 rounded-full flex items-center justify-center z-10 transform 
+                ${
+                  idx % 2 === 0
+                    ? "left-4 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-1/2"
+                    : "left-4 -translate-x-1/2 md:left-0 md:-translate-x-1/2"
                 }`}
               >
                 <Briefcase size={16} className="text-indigo-500" />
@@ -67,10 +71,13 @@ export default function Experience() {
                     )}
                   </div>
                 </div>
-                
+
                 <ul className="space-y-3 text-gray-400 text-sm list-none text-left">
                   {exp.responsibilities.map((resp, i) => (
-                    <li key={i} className="flex items-start gap-3 justify-start">
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 justify-start"
+                    >
                       <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
                       <span>{resp}</span>
                     </li>
@@ -80,7 +87,10 @@ export default function Experience() {
                 {exp.technologies && (
                   <div className="mt-6 flex flex-wrap gap-2 justify-start">
                     {exp.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs"
+                      >
                         {tech}
                       </span>
                     ))}

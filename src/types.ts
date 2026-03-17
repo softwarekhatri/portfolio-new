@@ -1,6 +1,7 @@
 export interface Experience {
   role: string;
   company: string;
+  website?: string;
   location?: string;
   duration: string;
   responsibilities: string[];

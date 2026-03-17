@@ -51,7 +51,8 @@ export default function About() {
             <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-2">
               <div className="w-full h-full rounded-2xl overflow-hidden relative group">
                 <img
-                  src="https://picsum.photos/seed/developer/800/800"
+                  // src="https://picsum.photos/seed/developer/800/800"
+                  src="/ankit.jpeg"
                   alt="Ankit Khatri"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
