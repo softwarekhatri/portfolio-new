@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, X, Github } from 'lucide-react';
-import { PROJECTS } from '../constants';
-import { Project } from '../types';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ExternalLink, X, Github } from "lucide-react";
+import { PROJECTS } from "../constants";
+import { Project } from "../types";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="py-24 px-6 bg-white/[0.02]">
@@ -50,13 +62,18 @@ export default function Projects() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="px-6 py-2 bg-white text-black rounded-full font-bold text-sm">View Details</span>
+                  <span className="px-6 py-2 bg-white text-black rounded-full font-bold text-sm">
+                    View Details
+                  </span>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="text-[10px] uppercase tracking-widest font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] uppercase tracking-widest font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -93,9 +110,16 @@ export default function Projects() {
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 z-10 p-2 bg-black/50 hover:bg-black rounded-full text-white transition-colors"
+                className="absolute top-6 right-6 z-10 p-2 bg-black/50 hover:bg-indigo-700/80 rounded-full text-white transition-colors cursor-pointer group"
+                type="button"
+                aria-label="Close project modal"
               >
-                <X size={20} />
+                <span className="flex items-center justify-center">
+                  <X
+                    size={20}
+                    className="group-hover:text-white group-hover:scale-110 transition-transform duration-150"
+                  />
+                </span>
               </button>
 
               <div className="grid md:grid-cols-2">
@@ -109,17 +133,22 @@ export default function Projects() {
                 </div>
                 <div className="p-8 md:p-12 flex flex-col">
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {selectedProject.tags.map(tag => (
-                      <span key={tag} className="text-xs uppercase tracking-widest font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full">
+                    {selectedProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs uppercase tracking-widest font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-4xl font-bold text-white mb-6">{selectedProject.title}</h3>
+                  <h3 className="text-4xl font-bold text-white mb-6">
+                    {selectedProject.title}
+                  </h3>
                   <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
                     {selectedProject.longDescription}
                   </p>
-                  
+
                   <div className="flex gap-4">
                     <a
                       href="#"
