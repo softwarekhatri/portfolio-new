@@ -17,7 +17,8 @@ export default function About() {
               About Me
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Crafting robust backends for the next generation of apps.
+              {/* Crafting robust backends for the next generation of apps. */}
+              Building things with Java, systems and Artificial Intelligence.
             </h3>
             <p className="text-lg text-gray-400 leading-relaxed mb-8">
               {PERSON_DETAILS.bio}

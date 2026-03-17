@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { SKILLS } from '../constants';
+import React from "react";
+import { motion } from "motion/react";
+import { SKILLS } from "../constants";
 
-const categories = Array.from(new Set(SKILLS.map(s => s.category)));
+const categories = Array.from(new Set(SKILLS.map((s) => s.category)));
 
 export default function Skills() {
   return (
@@ -43,11 +43,15 @@ export default function Skills() {
                 {category}
               </h4>
               <div className="space-y-6">
-                {SKILLS.filter(s => s.category === category).map((skill) => (
+                {SKILLS.filter((s) => s.category === category).map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-300">{skill.name}</span>
-                      <span className="text-xs font-mono text-indigo-400">{skill.level}%</span>
+                      <span className="text-sm font-medium text-gray-300">
+                        {skill.name}
+                      </span>
+                      <span className="text-xs font-mono text-indigo-400">
+                        {skill.level}%
+                      </span>
                     </div>
                     <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
                       <motion.div

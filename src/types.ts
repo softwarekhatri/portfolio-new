@@ -26,5 +26,10 @@ export interface Blog {
 export interface Skill {
   name: string;
   level: number; // 0 to 100
-  category: 'Language' | 'Backend' | 'Data' | 'Cloud' | 'Database' | 'Other';
+  category:
+    | "Backend"
+    | "Cloud"
+    | "Architecture"
+    | "Artificial Intelligence"
+    | "Data Infrastructure";
 }
