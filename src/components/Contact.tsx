@@ -4,6 +4,44 @@ import { Mail, Linkedin, Github, Send, MapPin, Code2 } from "lucide-react";
 import { PERSON_DETAILS } from "../constants";
 
 export default function Contact() {
+  const [status, setStatus] = React.useState("");
+
+  React.useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => setStatus(""), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+    try {
+      const response = await fetch("https://formspree.io/f/xeolpgga", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        form.reset();
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -96,7 +134,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="p-6 md:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">
@@ -104,6 +142,8 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    required
                     placeholder="What should I call you?"
                     className="w-full px-4 md:px-6 py-4 bg-black/50 border border-white/10 rounded-2xl text-white focus:outline-none focus:border-indigo-500 transition-colors"
                   />
@@ -114,6 +154,8 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder="Where can I reach you?"
                     className="w-full px-4 md:px-6 py-4 bg-black/50 border border-white/10 rounded-2xl text-white focus:outline-none focus:border-indigo-500 transition-colors"
                   />
@@ -125,6 +167,8 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  required
                   placeholder="Summary of your message"
                   className="w-full px-4 md:px-6 py-4 bg-black/50 border border-white/10 rounded-2xl text-white focus:outline-none focus:border-indigo-500 transition-colors"
                 />
@@ -135,17 +179,24 @@ export default function Contact() {
                 </label>
                 <textarea
                   rows={5}
+                  name="message"
+                  required
                   placeholder="Explain how we can collaborate or any questions you have"
                   className="w-full px-4 md:px-6 py-4 bg-black/50 border border-white/10 rounded-2xl text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"
                 />
               </div>
-              <button className="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/20 group">
+              <button className="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/20 group cursor-pointer">
                 Send Message{" "}
                 <Send
                   size={18}
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                 />
               </button>
+              {status && (
+                <div className="mt-4 text-center text-sm font-semibold text-indigo-400">
+                  {status}
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
