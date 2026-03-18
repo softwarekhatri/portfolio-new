@@ -40,13 +40,15 @@ export default function Contact() {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        setStatus("Message sent successfully!");
+        setStatus(
+          "Thank you! I have received your message and will be in touch shortly.",
+        );
         form.reset();
       } else {
-        setStatus("Failed to send message. Please try again.");
+        setStatus("Failed to send message. Please try again later.");
       }
     } catch (error) {
-      setStatus("Failed to send message. Please try again.");
+      setStatus("Network error. Please try again later.");
     }
   };
 
