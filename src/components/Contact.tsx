@@ -1,6 +1,14 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Mail, Linkedin, Github, Send, MapPin, Code2 } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Send,
+  MapPin,
+  Code2,
+  Calendar,
+} from "lucide-react";
 import { PERSON_DETAILS } from "../constants";
 
 export default function Contact() {
@@ -107,6 +115,10 @@ export default function Contact() {
             <div className="flex gap-4 mt-12">
               {[
                 { icon: Linkedin, href: PERSON_DETAILS.linkedin },
+                {
+                  icon: Calendar,
+                  href: "https://calendly.com/softwarekhatri",
+                },
                 {
                   icon: Github,
                   href: PERSON_DETAILS.github,
