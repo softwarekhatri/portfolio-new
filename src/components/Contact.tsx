@@ -107,11 +107,11 @@ export default function Contact() {
             <div className="flex gap-4 mt-12">
               {[
                 { icon: Linkedin, href: PERSON_DETAILS.linkedin },
-                { icon: Code2, href: PERSON_DETAILS.leetcode },
                 {
                   icon: Github,
                   href: PERSON_DETAILS.github,
                 },
+                { icon: Code2, href: PERSON_DETAILS.leetcode },
               ].map((social, i) => (
                 <motion.a
                   key={i}
