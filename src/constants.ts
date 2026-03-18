@@ -92,6 +92,8 @@ export const SKILLS: Skill[] = [
     level: 85,
     category: "Artificial Intelligence",
   },
+
+  { name: "Data Structure & Algorithms", level: 97, category: "Backend" },
   { name: "Spring Boot", level: 90, category: "Backend" },
   { name: "Java", level: 98, category: "Backend" },
   { name: "System Design", level: 90, category: "Backend" },

@@ -128,10 +128,10 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-gray-500 uppercase tracking-widest">
+        {/* <span className="text-xs text-gray-500 uppercase tracking-widest">
           Scroll to explore
-        </span>
-        <div className="w-px h-12 bg-gradient-to-b from-indigo-500 to-transparent" />
+        </span> */}
+        {/* <div className="w-px h-12 bg-gradient-to-b from-indigo-500 to-transparent" /> */}
       </motion.div>
     </section>
   );
