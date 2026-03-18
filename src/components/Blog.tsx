@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowUpRight, Calendar } from 'lucide-react';
-import { BLOGS } from '../constants';
+import React from "react";
+import { motion } from "motion/react";
+import { ArrowUpRight, Calendar } from "lucide-react";
+import { BLOGS } from "../constants";
 
 export default function Blog() {
   return (
@@ -28,7 +28,8 @@ export default function Blog() {
             </motion.h3>
           </div>
           <motion.a
-            href="#"
+            href="https://medium.com/@ankitkhatriofficial"
+            target="_blank"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -43,6 +44,7 @@ export default function Blog() {
             <motion.a
               key={blog.title}
               href={blog.link}
+              target="_blank"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -53,7 +55,9 @@ export default function Blog() {
                 <Calendar size={14} />
                 <span>{blog.date}</span>
                 <span className="w-1 h-1 rounded-full bg-gray-700" />
-                <span className="text-indigo-400 font-medium">Backend Engineering</span>
+                <span className="text-indigo-400 font-medium">
+                  Backend Engineering
+                </span>
               </div>
               <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">
                 {blog.title}
@@ -62,7 +66,8 @@ export default function Blog() {
                 {blog.excerpt}
               </p>
               <div className="flex items-center gap-2 text-white font-bold group-hover:gap-4 transition-all">
-                Read Article <ArrowUpRight size={18} className="text-indigo-500" />
+                Read Article{" "}
+                <ArrowUpRight size={18} className="text-indigo-500" />
               </div>
             </motion.a>
           ))}

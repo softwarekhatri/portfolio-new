@@ -11,6 +11,8 @@ export const PERSON_DETAILS = {
   linkedin: "https://linkedin.com/in/ankitkhatriofficial/",
   leetcode: "https://leetcode.com/u/ankitkhatriofficial/",
   portfolio: "https://ankitkhatri.vercel.app/",
+  github: "https://github.com/ankitkhatriofficial",
+  topmate: "https://topmate.io/ankitkhatriofficial",
 };
 
 export const EXPERIENCES: Experience[] = [
@@ -169,30 +171,30 @@ export const PROJECTS: Project[] = [
 export const BLOGS: Blog[] = [
   {
     title: "Java Integer Cache",
-    date: "Oct 2023",
+    date: "Sep 2021",
     excerpt:
-      "Exploring the internal working of Integer caching in Java and its impact on memory and performance.",
-    link: "#",
+      "Explore the internal working of Integer caching in Java and its impact on memory and performance.",
+    link: "https://medium.com/@ankitkhatriofficial/everything-about-java-integer-caching-b5c752a91393",
   },
   {
     title: "Interfaces in Java",
-    date: "Aug 2023",
+    date: "Jun 2022",
     excerpt:
       "A deep dive into functional interfaces, default methods, and static methods in modern Java.",
-    link: "#",
+    link: "https://medium.com/towardsdev/all-about-the-interfaces-in-java-ea9c89eeb0f",
   },
   {
     title: "HTTP Protocols",
     date: "Jun 2023",
     excerpt:
       "Understanding the evolution of HTTP from 1.1 to HTTP/3 and why it matters for backend performance.",
-    link: "#",
+    link: "https://medium.com/@ankitkhatriofficial/http-protocols-that-everyone-must-know-3278e627e3a2",
   },
   {
-    title: "Redis Architecture",
-    date: "Apr 2023",
+    title: "Redis - The Almighty",
+    date: "Jul 2023",
     excerpt:
       "How Redis achieves high performance through its single-threaded event loop and in-memory data structures.",
-    link: "#",
+    link: "https://medium.com/@ankitkhatriofficial/redis-the-almighty-4c71e47be617",
   },
 ];
