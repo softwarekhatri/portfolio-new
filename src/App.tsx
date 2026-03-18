@@ -60,7 +60,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-black text-white selection:bg-indigo-500 selection:text-white">
+    <div className="dark:bg-black dark:text-white light:bg-white light:text-black selection:bg-indigo-500 selection:text-white">
       <Background3D />
       <Navbar />
       <main>
